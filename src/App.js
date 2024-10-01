@@ -1,23 +1,41 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
 
-function App() {
+function Home() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Welcome to Golden Companion</h1>
+        <Link to="/social-links">
+          <button>Go to Social Links</button>
+        </Link>
       </header>
+    </div>
+  );
+}
+
+function SocialLinks() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Social Links</h1>
+        <p>This is where you'll display social links information.</p>
+        <Link to="/">
+          <button>Back to Home</button>
+        </Link>
+      </header>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/social-links" element={<SocialLinks />} />
+      </Routes>
     </div>
   );
 }
